@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Product(props) {
-  const {product} = props;
+  const {product, onAdd} = props;
   return (
     <CardStyled>
       <img className="productImage" src={product.image} alt={product.name}></img>
       <h3>{product.name}</h3>
       <div>${product.price}</div>
-      <div></div>
+      <button onClick={() => onAdd(product)}> Add favorites</button>
     </CardStyled>
   );
 }
