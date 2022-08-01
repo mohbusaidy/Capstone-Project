@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Product from './Product';
 
 export default function Favorites(props) {
   const {favoriteItems, onAdd} = props;
@@ -7,10 +8,8 @@ export default function Favorites(props) {
     <StyledFooter>
       <h3>Favorites</h3>
       <div>{favoriteItems.length === 0 && <div> Favorites empty</div>}</div>
-      {favoriteItems.map(item => (
-        <div key={item.id}>
-          <div>{item.name}</div>
-        </div>
+      {favoriteItems.map(product => (
+        <Product key={product.id} product={product} onAdd={onAdd} />
       ))}
     </StyledFooter>
   );
@@ -19,5 +18,4 @@ export default function Favorites(props) {
 const StyledFooter = styled.footer`
   display: flex;
   flex-flow: row wrap;
-  border: solid green;
 `;
