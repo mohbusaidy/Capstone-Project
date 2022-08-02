@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import NoBookmarkIcon from './NoBookmarkIcon';
+import BookmarkIcon from './Bookmarkicon';
 
 export default function Product(props) {
   const {product, onAdd} = props;
@@ -8,7 +10,7 @@ export default function Product(props) {
       <img className="productImage" src={product.image} alt={product.name}></img>
       <h3>{product.name}</h3>
       <div>${product.price}</div>
-      <button onClick={() => onAdd(product)}> Add favorites</button>
+      <Bookmark onClick={() => onAdd(product)}>{bookmarked ? <BookmarkIcon /> : <NoBookmarkIcon />}</Bookmark>
     </CardStyled>
   );
 }
@@ -40,3 +42,8 @@ const CardStyled = styled.article`
 //     width: 100%;
 //     flex-direction: column;
 //   }
+
+const Bookmark = styled.button`
+  width: 20px;
+  fill: 1;
+`;
