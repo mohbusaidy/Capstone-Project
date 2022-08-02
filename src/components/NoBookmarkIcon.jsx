@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default NoBookmarkicon = () => {
+export const NoBookmarkIcon = () => {
   return <img src="/images/favorite.svg"></img>;
 };

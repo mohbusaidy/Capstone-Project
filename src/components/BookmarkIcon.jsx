@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default Bookmarkicon = () => {
-  return <img src="/images/favorite filled.svg"></img>;
+export const BookmarkIcon = () => {
+  return <img src="/images/favorite filled.svg" alt="favorite icon"></img>;
 };

@@ -5,7 +5,6 @@ import Main from './components/Main';
 import './style/global.css';
 import './components/product.css';
 import {useState} from 'react';
-import NoBookmarkicon from './components/NoBookmarkIcon';
 
 export default function App() {
   const products = data;
@@ -18,7 +17,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      <NoBookmarkicon />
+
       <Main onAdd={onAdd} products={products} />
       <Favorites onAdd={onAdd} favoriteItems={favoriteItems} />
     </div>
