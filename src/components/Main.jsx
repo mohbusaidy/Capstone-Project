@@ -1,21 +1,15 @@
-import React from 'react';
 import Product from './Product.jsx';
 import styled from 'styled-components';
 
-
 export default function Main(props) {
-  const {products, onAdd, bookmarked, id, onBookmark} = props;
+  const {products, onBookmark} = props;
   return (
     <main>
       <StyledSection>
-        {products.map(
-          product =>
-            <Product key={product.id} product={product} onAdd={onAdd}></Product> /
-           
-        )}
-      
+        {products.map(product => (
+          <Product key={product.id} product={product} onBookmark={onBookmark}></Product>
+        ))}
       </StyledSection>
-      
     </main>
   );
 }

@@ -7,30 +7,27 @@ import './components/product.css';
 import {useState} from 'react';
 
 export default function App() {
-  const products = data;
-  const [favoriteItems, setFavoriteItems] = useState([]);
-  const [exercises, setExercise] = useState(data);
+  const [products, setProducts] = useState(data);
+  const favoriteItems = products.filter(product => product.bookmarked === true);
 
-  const onAdd = productToFavorite => {
-    const favoriteProduct = products.find(product => product.id === productToFavorite.id);
-    setFavoriteItems([...favoriteItems, favoriteProduct]);
-  };
-  function handleBookmark(id) {
-    setExercise(
-      exercises.map(exercise => {
-        if (exercise.id === id) {
-          return {...exercise, bookmarked: !exercise.bookmarked};
+  const handleBookmark = id => {
+    setProducts(
+      products.map(product => {
+        if (product.id === id) {
+          return {...product, bookmarked: !product.bookmarked};
+        } else {
+          return product;
         }
-        return exercise;
       })
     );
-  }
+  };
+
   return (
     <div>
       <Header />
 
-      <Main onAdd={onAdd} products={products} exercises={exercises} onBookmark={handleBookmark} />
-      <Favorites onAdd={onAdd} favoriteItems={favoriteItems} />
+      <Main products={products} onBookmark={handleBookmark} />
+      <Favorites onBookmark={handleBookmark} favoriteItems={favoriteItems} />
     </div>
   );
 }
