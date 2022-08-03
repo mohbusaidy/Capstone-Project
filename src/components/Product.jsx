@@ -10,7 +10,6 @@ export default function Product(props) {
       <img className="productImage" src={product.image} alt={product.name}></img>
       <h3>{product.name}</h3>
       <div>${product.price}</div>
-      <Bookmark onClick={() => onAdd(product)}>{product ? <BookmarkIcon /> : <NoBookmarkIcon />}</Bookmark>
     </CardStyled>
   );
 }
