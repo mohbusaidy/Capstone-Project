@@ -2,8 +2,6 @@ import Favorites from './components/Favorites';
 import Header from './components/Header';
 import data from './data';
 import Main from './components/Main';
-import './style/global.css';
-import './components/product.css';
 import {useState} from 'react';
 import {DropDown} from './components/DropDown';
 

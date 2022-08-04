@@ -11,7 +11,10 @@ export default styled.createGlobalStyle`
   body {
     margin: 0;
     font-size: 1.125rem;
-    font-family: sans-serif;
+
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+      Helvetica Neue, sans-serif;
   }
 
   button,

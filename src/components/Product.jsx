@@ -34,6 +34,10 @@ const CardStyled = styled.article`
   transition: color 0.15s ease, border-color 0.15s ease;
   position: relative;
 
+  img {
+    max-width: 50%;
+  }
+
   h3 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
