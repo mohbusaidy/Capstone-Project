@@ -8,11 +8,7 @@ export default function Favorites(props) {
       <h3>Favorites</h3>
       <div>{favoriteItems.length === 0 && <div> Favorites empty</div>}</div>
       {favoriteItems &&
-        favoriteItems.map(product => (
-          <Product key={product.id} product={product}>
-            onBookmark={onBookmark}
-          </Product>
-        ))}
+        favoriteItems.map(product => <Product key={product.id} product={product} onBookmark={onBookmark}></Product>)}
     </StyledArticle>
   );
 }

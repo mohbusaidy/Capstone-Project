@@ -5,6 +5,7 @@ import Main from './components/Main';
 import './style/global.css';
 import './components/product.css';
 import {useState} from 'react';
+import {DropDown} from './components/DropDown';
 
 export default function App() {
   const [products, setProducts] = useState(data);
@@ -25,7 +26,7 @@ export default function App() {
   return (
     <div>
       <Header />
-
+      <DropDown />
       <Main products={products} onBookmark={handleBookmark} />
       <Favorites onBookmark={handleBookmark} favoriteItems={favoriteItems} />
     </div>

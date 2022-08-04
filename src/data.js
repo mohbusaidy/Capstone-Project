@@ -32,5 +32,13 @@ const data = [
     bookmarked: false,
     description: 'blablabal',
   },
+  {
+    id: '5',
+    name: 'a7000',
+    price: '2799',
+    image: '/images/a7000.png',
+    bookmarked: false,
+    description: 'blablabal',
+  },
 ];
 export default data;
