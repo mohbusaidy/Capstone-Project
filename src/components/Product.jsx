@@ -54,6 +54,6 @@ const Bookmark = styled.button`
   border: none;
   background-color: transparent;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 10px;
+  top: 10px;
 `;
