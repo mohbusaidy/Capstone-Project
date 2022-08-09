@@ -2,12 +2,13 @@ import Favorites from './components/Favorites';
 import Header from './components/Header';
 import data from './data';
 import Main from './components/Main';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 export default function App() {
-  const [sortProducts, setSortProducts] = useState('');
-  const [filter, setFilter] = useState('');
   const [products, setProducts] = useState(data);
+  const [filter, setFilter] = useState('');
+  const [sortLowToHigh, setSortLowToHigh] = useState(true);
+
   const favoriteItems = products.filter(product => product.bookmarked === true);
 
   function handleFilter(stringToFilter) {
@@ -27,31 +28,30 @@ export default function App() {
       })
     );
   };
-  const handlePriceOption = item => {
-    setSortProducts(item);
+
+  const handleSortChange = () => {
+    setSortLowToHigh(sortLowToHigh => !sortLowToHigh);
   };
-  useEffect(() => {
-    if (sortProducts === 'Low to high') {
-      const lth = products.price((a, b) => a - b);
-      setSortProducts(lth);
-    }
-    if (sortProducts === 'High to low') {
-      const htl = products.price((a, b) => a - b).reverse();
-      setSortProducts(htl);
-    }
-  });
 
   return (
     <div>
       <Header />
 
       <Main
-        products={products}
+        products={products.sort((a, b) => {
+          if (sortLowToHigh) {
+            return a.price - b.price;
+          } else {
+            return b.price - a.price;
+          }
+        })}
+        sortLowToHigh={sortLowToHigh}
+        onSortChange={handleSortChange}
         onBookmark={handleBookmark}
         onFilter={handleFilter}
         filter={filter}
-        sortProducts={sortProducts}
-        handlePriceOption={handlePriceOption}
+        // sortProducts={sortProducts}
+        // sortedProducts={sorted}
       />
       <Favorites onBookmark={handleBookmark} favoriteItems={favoriteItems} />
     </div>

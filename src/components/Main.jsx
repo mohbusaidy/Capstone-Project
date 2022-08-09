@@ -2,7 +2,7 @@ import Product from './Product.jsx';
 import styled from 'styled-components';
 
 export default function Main(props) {
-  const {products, onBookmark, onFilter, filter, sortProducts, handlePriceOption} = props;
+  const {products, onBookmark, onFilter, filter, onSortChange, sortLowToHigh} = props;
 
   return (
     <main>
@@ -14,8 +14,11 @@ export default function Main(props) {
           <button onClick={() => onFilter('lens')} filter={filter}>
             Lens
           </button>
-          <button onClick={() => sortProducts('price')} handlePriceOption={handlePriceOption}>
+          <button onClick={onSortChange} disabled={sortLowToHigh}>
             Low To High
+          </button>
+          <button onClick={onSortChange} disabled={!sortLowToHigh}>
+            High To Low
           </button>
         </ul>
         {products.map(product => (
