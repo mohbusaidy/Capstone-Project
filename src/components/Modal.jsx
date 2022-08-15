@@ -3,12 +3,19 @@ export function Modal({open, onClose, onBookmark, product}) {
   return (
     open && (
       <StyledModal>
+        <CloseButton
+          onClick={() => {
+            onClose();
+          }}
+        >
+          X
+        </CloseButton>
         <CardStyled>
           <img className="productImage" src={product.image} alt={product.name}></img>
           <h3>{product.name}</h3>
           <div>${product.price}</div>
           <div>{product.description}</div>
-          <CloseButton onClick={onClose}>X</CloseButton>
+
           <Bookmark Click={() => onBookmark(product.id)}>
             {product.bookmarked ? (
               <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
@@ -37,7 +44,7 @@ const StyledModal = styled.div`
   width: 100%;
   min-width: 350px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: black;
   color: white;
   overflow-y: scroll;
 `;
@@ -74,11 +81,12 @@ const Bookmark = styled.button`
   background-color: transparent;
   position: absolute;
   right: 10px;
-  top: 10px;
+  /* top: 10px; */
+  bottom: 10px;
 `;
 export const CloseButton = styled.button`
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   right: 5px;
   top: 5px;
