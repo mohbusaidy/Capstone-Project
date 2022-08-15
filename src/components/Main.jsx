@@ -1,5 +1,6 @@
 import Product from './Product.jsx';
 import styled from 'styled-components';
+import {IoIosCamera} from 'react-icons/io';
 
 export default function Main(props) {
   const {products, onBookmark, onFilter, filter, onSortChange, sortLowToHigh} = props;
@@ -8,7 +9,7 @@ export default function Main(props) {
     <main>
       <Buttons>
         <Button onClick={() => onFilter('body')} filter={filter}>
-          Body
+          <IoIosCamera />
         </Button>
         <Button onClick={() => onFilter('lens')} filter={filter}>
           Lens
