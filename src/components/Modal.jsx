@@ -95,7 +95,6 @@ const Bookmark = styled.button`
   background-color: transparent;
   position: absolute;
   right: 10px;
-
   bottom: 1px;
 `;
 export const CloseButton = styled.button`
