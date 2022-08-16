@@ -24,6 +24,6 @@ export default styled.createGlobalStyle`
   }
 
   :root {
-    background-color: rgb(242, 242, 242);
+    background-color: #262626;
   }
 `;

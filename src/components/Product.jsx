@@ -14,14 +14,13 @@ export default function Product(props) {
         onClick={() => {
           setModalIsOpen(modalIsOpen => !modalIsOpen);
         }}
-        className="productImage"
         src={product.image}
         alt={product.name}
       ></img>
       <Box>
         <div>${product.price}</div>
         <Bookmark onClick={() => onBookmark(product.id)}>
-          {product.bookmarked ? <IoIosHeartEmpty /> : <IoMdHeart />}
+          {product.bookmarked ? <IoMdHeart /> : <IoIosHeartEmpty />}
           <Modal
             open={modalIsOpen}
             onClose={() => {
@@ -56,6 +55,9 @@ const CameraBox = styled.section`
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   background-color: white;
+  &:hover {
+    background-color: #bfbfbf;
+  }
 
   h2 {
     margin: 0 0 1rem 0;

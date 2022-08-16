@@ -18,23 +18,27 @@ export default function Favorites(props) {
 const StyledArticle = styled.article`
   display: flex;
   flex-flow: row wrap;
-  width: 20%;
-  img {
-    max-width: 75%;
-  }
-  h3 {
+  color: black;
+
+  h2 {
     margin: 0 0 1rem 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
+  img {
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
+    margin: 12.5px;
+    align-self: center;
+  }
   p {
-    font-size: 0.5rem;
-    line-height: 1.5;
-    margin: 0.8em 0;
+    font-size: 1.5rem;
   }
 `;
 
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
+  color: white;
 `;
