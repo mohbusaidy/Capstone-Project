@@ -1,21 +1,52 @@
-import React from 'react';
 import styled from 'styled-components';
+import {Modal} from './Modal';
+import {useState} from 'react';
+import {IoIosHeartEmpty} from 'react-icons/io';
+import {IoMdHeart} from 'react-icons/io';
 
 export default function Product(props) {
-  const {product} = props;
+  const {product, onBookmark} = props;
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
-    <CardStyled>
-      <img className="productImage" src={product.image} alt={product.name}></img>
-      <h3>{product.name}</h3>
-      <div>${product.price}</div>
-      <div></div>
-    </CardStyled>
+    <CameraBox>
+      <h2>{product.name}</h2>
+      <img
+        onClick={() => {
+          setModalIsOpen(modalIsOpen => !modalIsOpen);
+        }}
+        src={product.image}
+        alt={product.name}
+      ></img>
+      <Box>
+        <div>${product.price}</div>
+        <Bookmark onClick={() => onBookmark(product.id)}>
+          {product.bookmarked ? <IoMdHeart /> : <IoIosHeartEmpty />}
+          <Modal
+            open={modalIsOpen}
+            onClose={() => {
+              setModalIsOpen(false);
+            }}
+            onBookmark={onBookmark}
+            product={product}
+          ></Modal>
+        </Bookmark>
+      </Box>
+    </CameraBox>
   );
 }
 
-const CardStyled = styled.article`
+const Bookmark = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+`;
+const CameraBox = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
   margin: 1rem;
-  max-width: 20rem;
+  width: 20rem;
+  height: 20rem;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -23,20 +54,28 @@ const CardStyled = styled.article`
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+  background-color: white;
 
-  h3 {
+  h2 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
   }
 
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.8em 0;
+  img {
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
+    margin: 25px;
+    align-self: center;
   }
 `;
-// @media (max-width: 600px) {
-//   .grid {
-//     width: 100%;
-//     flex-direction: column;
-//   }
+
+const Box = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+`;

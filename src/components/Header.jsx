@@ -1,12 +1,20 @@
-import React from 'react';
 import styled from 'styled-components';
+import {GiPhotoCamera} from 'react-icons/gi';
 
-export default function Header(props) {
-  return <DigitalStyled>Digital Portrait</DigitalStyled>;
+export default function Header() {
+  return (
+    <DigitalStyled>
+      <GiPhotoCamera />
+      Digital Potrait
+    </DigitalStyled>
+  );
 }
 
 const DigitalStyled = styled.h1`
   display: flex;
   position: relative;
-  left: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  color: white;
 `;
